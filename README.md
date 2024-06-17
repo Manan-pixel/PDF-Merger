@@ -22,37 +22,37 @@ pip install PyPDF2
    Modify the script to include the paths of the PDFs you want to merge and the output file name. Example:
 
    ```python
-   input_pdfs = ["/path/to/part1.pdf", "/path/to/part2.pdf"]
-   output_pdf = "merged_output.pdf"
-   merge_pdfs(input_pdfs, output_pdf)
+   files_list = [
+       "/content/part1.pdf",
+       "/content/part2.pdf"
+   ]
+   output_file = "/content/merged_output.pdf"
    ```
 
 3. **Run the Script**
 
    ```bash
-   python merge_pdfs.py
+   Run the Entire Program
    ```
 
 4. **Merged PDF**
 
-   The merged PDF will be saved with the name specified in the `output_pdf` variable.
+   The merged PDF will be saved with the name specified in the `merged_output` variable.
 
 ## Script Explanation
 
-### merge_pdfs Function
+### PdfWriter Function
 
-This function takes two arguments:
-- `input_pdfs`: A list of paths to the input PDF files to be merged.
-- `output_pdf`: The path where the merged PDF file will be saved.
+- PdfWriter is used to write the merged PDF file.
+- PdfReader is used to read each input PDF file.
 
-The function performs the following steps:
-1. Creates a `PdfWriter` object.
-2. Iterates over each input PDF file:
-   - Opens the PDF file.
-   - Reads the PDF file using `PdfReader`.
-   - Adds each page of the PDF to the `PdfWriter` object.
-   - Closes the PDF file.
-3. Writes the combined pages to the output PDF file.
+- files_list is a list of file paths for the PDFs that will be merged. Adjust these paths to match your files.
+- output_file is the path where the merged PDF will be saved.
+- An instance of PdfWriter is created to manage the merged PDF file.
+- The script iterates over each PDF file in files_list.
+- Each file is read using PdfReader.
+- All pages from each file are added to PdfWriter.
+- The merged PDF content is written to output_file using a context manager to ensure the file is properly closed after writing.
 
 
 ## License
